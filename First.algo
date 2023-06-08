@@ -1,0 +1,139 @@
+ALGORITHM TEST 
+VAR
+    matrix :   ARRAY_OF INTEGER [5][5];
+    tab :   ARRAY_OF INTEGER[5];
+    
+    test : BOOLEAN  ; 
+    x,y,i,nb_mot,nb_vowels : INTEGER ;
+    moyenne : FLOAT ; 
+    ch , ch1: STRING  ; 
+    chaine : STRING [5] :="from!" ; 
+BEGIN
+    Write("Hello world" , chaine) 
+    Read(ch) 
+    Read(x)
+    IF (ch="Hello") THEN
+        Write(ch)
+    ELSE 
+        Write(ch , " != hello")
+    END_IF
+
+    SWITCH (x) DO
+        case 5 : Write("x=5")
+        case 6 : Write("x=6")
+        default : Write("x != 5 && x!=6")
+    END_SWITCH
+    IF (x=5) THEN
+        Write("x=5")
+    ELSE_IF (x=6) THEN
+        Write("x=6")
+    ELSE
+        Write("x != 5 && x!=6")
+    END_IF
+
+    FOR i FROM 1 TO 5 STEP 1  DO
+        FOR j FROM 1 TO i STEP 1  DO
+            Write(j)
+        END_FOR
+            Write("/n")
+    END_FOR
+
+    ch:=
+
+    y:=1
+    WHILE (y!=5) DO
+        Write(y);
+        y:=y+1 ; 
+    END_WHILE
+    // 1 y=2 
+    // 2 y=3
+    // 3 y=4 
+    // 4 y=5 
+
+    y:=1 
+    REPEAT
+        y:=y+1 ;
+        Write(y);     
+    UNTIL (y!=5) ; 
+
+    // [ 1 , 2 , 3 , 4 , 5 ] elements
+    // [ 0 , 1 , 2 , 3 , 4 ] index
+
+    FOR i FROM 0 TO length(tab)-1  STEP 1  DO
+        Write("enter the value for the " , i  , " element of tab ")
+        Read(tab[i]) //tab[0] := 
+    END_FOR
+    // [ 1 , 2 , 3 , 4 , 5 ] 
+    y:=0 ; 
+    WHILE (y!=length(tab)-1) DO
+        IF (tab[i] % 2 = 0) THEN
+            Write(tab[i] , "est paire")
+        ELSE
+            Write(tab[i] , "est impaire")
+        END_IF
+    END_WHILE
+
+    matrix 
+    // [ 
+    // ,[1,2,3,4,5] 
+    // ,[6,7,8,9,10]  
+    // ,[6,7,8,9,10]  
+    // ,[6,7,8,9,10]  
+    // ,[6,7,8,9,10]   
+    // ,]
+
+    FOR i FROM 0 TO length(matrix)-1 STEP 1  DO
+        FOR j FROM 0 TO length(matrix[i])-1 STEP 1  DO
+            Write(matrix[i,j])
+        END_FOR
+    END_FOR
+    Write(ch[0])
+
+    // task 1 
+
+    REPEAT
+        Write("Write a sentence that ends with.") ;
+        Read(ch) 
+    UNTIL (ch[length(ch)-1] = ".")  ; 
+
+
+    ch1:="";
+    // remove space in the begining
+    WHILE (ch[0]=" ") DO
+        FOR i FROM 1 TO length(ch)-1 STEP step  DO
+            ch1:=ch1+ch[i]
+        END_FOR
+        ch:=ch1 ;
+    END_WHILE
+    // nb mot
+    nb_mot:=0 
+    j:=0 ;
+    FOR i FROM 0 TO length(ch)-1 STEP 1  DO
+        IF (ch[i] = " ") THEN
+            j:=i+1 ;
+            WHILE (ch[j]=" ") DO
+                j++
+            END_WHILE
+            i:=j ;
+            nb_mot++ ; 
+        END_IF
+    END_FOR
+    IF (ch[length(ch)-2] != " ") THEN
+        nb_mot++ ;
+    END_IF 
+
+    FOR i FROM 0 TO length(tab)-1 STEP step  DO
+        IF (ch[i].ToLower ="a" OR ch[i].ToLower ="e" OR ch[i].ToLower ="i" OR ch[i].ToLower ="o" OR ch[i].ToLower ="u"  ) THEN
+            nb_vowels++
+        END_IF
+    END_FOR
+
+
+
+
+
+
+
+
+
+END
